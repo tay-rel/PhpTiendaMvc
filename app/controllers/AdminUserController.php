@@ -22,6 +22,7 @@ class AdminUserController extends Controller
                 'menu' => false,
                 'admin' => true,
                 'users' => $users,
+							 'active'=>'users',
             ];
 
             $this->view('admin/users/index', $data);

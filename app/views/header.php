@@ -58,8 +58,13 @@
                             <button type="submit" class="btn btn-light"><i class="fas fa-search"></i></button>
                         </form>
                     </li>
-                    <li class="nav-item">
-                        <a href="<?= ROOT ?>shop/logout" class="nav-link">Salir</a>
+                    <li class="nav-item d-flex flex-row">
+											 <?php if(isset($_SESSION['user'])): ?>
+                           <a href="<?= ROOT ?>shop/logout" class="nav-link text-light " style="display: inline-block">Cerrar sesión</a>
+											 <?php else: ?>
+                           <a href="<?= ROOT ?>login" class="nav-link text-light">Iniciar sesión</a>
+                           <a href="<?= ROOT ?>login/registro" class="nav-link text-light">Registro</a>
+											 <?php endif; ?>
                     </li>
                 </ul>
             </div>

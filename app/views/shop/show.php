@@ -22,16 +22,15 @@
     <h4>Resumen:</h4>
     <?= html_entity_decode($data['data']->description) ?>
 <?php endif; ?>
-<?php if ($data['data']->type == 1):?>
-<!--volver al listado de curso-->
-    <a href="<?= ROOT . (!empty($data['back']) ? $data['back'] : 'courses') ?>" class="btn btn-success">Volver al listado de cursos</a>
-<?php elseif ($data['data']->type == 2): ?>
-    <!--volver al listado de libros-->
-    <a href="<?= ROOT . (!empty($data['back']) ? $data['back'] : 'books') ?>" class="btn btn-success">Volver al listado de libros</a>
+<a href="<?= ROOT . (!empty($data['back']) ? $data['back'] : 'shop') ?>" class="btn btn-success">Volver al listado de productos</a>
+
+<!--Comprar solo cuando este logueado-->
+<?php if(isset($_SESSION['user'])):?>
+<a href="<?= ROOT ?>cart/addProduct/<?= $data['data']->id ?>/<?= $data['user_id'] ?>" class="btn btn-primary">Comprar</a>
+<?php else:?>
+<a href="<?= ROOT ?>login" class="btn btn-primary">Comprar</a>
 <?php endif; ?>
 
-<!--<a href="<?= ROOT . (!empty($data['back']) ? $data['back'] : 'shop') ?>" class="btn btn-success">Volver al listado de productos</a>-->
-<a href="<?= ROOT ?>cart/addproduct/<?= $data['data']->id ?>/<?= $data['user_id'] ?>" class="btn btn-primary">Comprar</a>
 <?php include_once dirname(__DIR__) . ROOT . 'footer.php'?>
 
 

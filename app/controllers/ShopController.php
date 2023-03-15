@@ -11,10 +11,7 @@ class ShopController extends Controller
 
     public function index()
     {
-        $session = new Session();
-
-        if ($session->getLogin()) {
-
+			 $session = new Session();
             $mostSold = $this->model->getMostSold();
             $news = $this->model->getNews();
 
@@ -27,10 +24,7 @@ class ShopController extends Controller
                 'news' => $news,
             ];
             $this->view('shop/index', $data);
-        } else {
-            header('location:' . ROOT);
-        }
-
+						
     }
 
     public function logout()
@@ -43,7 +37,7 @@ class ShopController extends Controller
     public function show($id, $back = '')
     {
         $session = new Session();
-
+			 
         $product = $this->model->getProductById($id);
 
         $data = [
@@ -57,14 +51,12 @@ class ShopController extends Controller
         ];
 
         $this->view('shop/show', $data);
+			 
     }
 
     public function whoami()
     {
-        $session = new Session();
-
-        if ($session->getLogin()) {
-
+			 $session = new Session();
             $data = [
                 'titulo' => 'Quienes somos',
                 'menu' => true,
@@ -72,9 +64,7 @@ class ShopController extends Controller
             ];
 
             $this->view('shop/whoami', $data);
-        } else {
-            header('location:' . ROOT);
-        }
+  
     }
 
     public function contact()
@@ -136,11 +126,7 @@ class ShopController extends Controller
                 $this->view('shop/contact', $data);
             }
         } else {
-
-            $session = new Session();
-
-            if ($session->getLogin()) {
-
+					 $session = new Session();
                 $data = [
                     'titulo' => 'Contacta con nosotros',
                     'menu' => true,
@@ -148,10 +134,6 @@ class ShopController extends Controller
                 ];
 
                 $this->view('shop/contact', $data);
-            } else {
-                header('location:' . ROOT);
-            }
-
         }
     }
 }
