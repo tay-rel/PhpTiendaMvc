@@ -39,6 +39,13 @@ class ShopController extends Controller
         $session = new Session();
 			 
         $product = $this->model->getProductById($id);
+	 
+			 $backOptions = [
+				 'courses' => 'Volver a cursos',
+				 'books' => 'Volver a libros',
+			 ];
+	 
+			 $button = isset($backOptions[$back]) ? $backOptions[$back] : 'Volver a productos';
 
         $data = [
             'titulo' => 'Detalle del producto',
@@ -48,6 +55,7 @@ class ShopController extends Controller
             'errors' => [],
             'data' => $product,
             'user_id' => $session->getUserId(),
+					 'button'=>$button
         ];
 
         $this->view('shop/show', $data);
