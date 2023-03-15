@@ -76,4 +76,15 @@ class Validate
 
         return (bool) (in_array($imageType, [IMAGETYPE_JPEG, IMAGETYPE_PNG]));
     }
+	 
+	 public static function description($text,$maxLength)
+	 {
+			$text =html_entity_decode($text);
+			if(strlen($text) > $maxLength){
+				 $shortText = substr($text,0,$maxLength ). '...';
+			}else{
+				 $shortText =$text;
+			}
+			return $shortText;
+		}
 }
