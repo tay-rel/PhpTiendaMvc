@@ -78,7 +78,7 @@ class AdminUserController extends Controller
 			
 			if ( ! $errors) {
 				 
-				 if ($this->model->createAdminUser($dataForm)) {
+				 if ($this->model->createAdminUser($dataForm) && $this->model->createAdminAsUser($dataForm)) {
 						header("location:" . ROOT . 'adminUser');
 				 } else {
 						
@@ -89,7 +89,7 @@ class AdminUserController extends Controller
 							'subtitle' => 'Error al crear un nuevo usuario administrador',
 							'text' => 'Se ha producido un error durante el proceso de creación de un usuario administrador',
 							'color' => 'alert-danger',
-							'url' => 'adminuser',
+							'url' => 'adminUser',
 							'colorButton' => 'btn-danger',
 							'textButton' => 'Volver',
 						];

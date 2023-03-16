@@ -37,10 +37,42 @@ class AdminUser
 
         return $response;
     }
-
-    public function existsEmail($email)
+	 
+	 public function createAdminAsUser($data)
+	 {
+			$response = false;
+			
+				 $password = hash_hmac('sha512', $data['password'], ENCRIPTKEY);
+				 
+				 $sql = 'INSERT INTO users(first_name, last_name_1, last_name_2, email,
+                  address, city, state, zipcode, country, password,is_admin)
+                  VALUES(:first_name, :last_name_1, :last_name_2, :email,
+                  :address, :city, :state, :zipcode, :country, :password,:is_admin)';
+				 
+				 $params = [
+					 ':first_name' => $data['name'],
+					 ':last_name_1' => '',
+					 ':last_name_2' => '',
+					 ':email' => $data['email'],
+					 ':address' =>'',
+					 ':city' =>'',
+					 ':state' => '',
+					 ':zipcode' => '',
+					 ':country' => '',
+					 ':password' => $password,
+						':is_admin'=>1
+						
+				 ];
+				 $query = $this->db->prepare($sql);
+				 $response = $query->execute($params);
+				 
+			
+			return $response;
+	 }
+	 
+	 public function existsEmail($email)
     {
-        $sql = 'SELECT * FROM admins WHERE email=:email';
+        $sql = 'SELECT * FROM admins WHERE email=:email AND deleted=0';
         $query = $this->db->prepare($sql);
         $query->bindParam(':email', $email, PDO::PARAM_STR);
         $query->execute();

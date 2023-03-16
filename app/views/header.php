@@ -66,6 +66,11 @@
                            <a href="<?= ROOT ?>login/registro" class="nav-link text-light">Registro</a>
 											 <?php endif; ?>
                     </li>
+									 <?php if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']): ?>
+                    <li class="nav-item">
+                        <a href="<?= ROOT ?>adminShop" class="nav-link">Administrar</a>
+											 <?php endif; ?>
+                    </li>
                 </ul>
             </div>
         <?php endif; ?>

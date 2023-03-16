@@ -29,9 +29,9 @@ class Login
             $password = hash_hmac('sha512', $data['password'], ENCRIPTKEY);
 
             $sql = 'INSERT INTO users(first_name, last_name_1, last_name_2, email, 
-                  address, city, state, zipcode, country, password) 
+                  address, city, state, zipcode, country, password,is_admin)
                   VALUES(:first_name, :last_name_1, :last_name_2, :email, 
-                  :address, :city, :state, :zipcode, :country, :password)';
+                  :address, :city, :state, :zipcode, :country, :password,:is_admin)';
 
             $params = [
                 ':first_name' => $data['firstName'],
@@ -44,6 +44,7 @@ class Login
                 ':zipcode' => $data['postcode'],
                 ':country' => $data['country'],
                 ':password' => $password,
+							 ':is_admin'=>0
             ];
 
             $query = $this->db->prepare($sql);
