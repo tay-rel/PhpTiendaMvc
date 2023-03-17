@@ -5,6 +5,7 @@ class Session
 	 private $login = false;
 	 private $user;
 	 private $cartTotal;
+	 private $loginAdmin =false;
 	 
 	 public function __construct()
 	 {
@@ -22,13 +23,18 @@ class Session
 			}
 	 }
 	 
-	 public function login($user)
+	 public function login($user, $isAdmin=false)
 	 {
 			if ($user) {
 				 $this->user = $user;
 				 $_SESSION['user'] = $user;
-				 $_SESSION['isAdmin'] = $this->checkIsAdmin();
 				 $this->login = true;
+				 if($isAdmin){
+						$_SESSION['isAdmin'] = true;
+						$this->loginAdmin = true;
+				 }else{
+						$_SESSION['isAdmin'] = $this->checkIsAdmin();
+				 }
 			}
 	 }
 	 
@@ -44,6 +50,10 @@ class Session
 	 public function getLogin()
 	 {
 			return $this->login;
+	 }
+	 public function isLoggedInAdmin()
+	 {
+			return $this->loginAdmin;
 	 }
 	 
 	 public function getUser()

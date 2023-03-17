@@ -13,7 +13,7 @@ class AdminShopController extends Controller
     {
         $session = new Session();
 
-        if ($session->getLogin()) {
+        if ($session->isLoggedInAdmin()) {
             $data = [
                 'titulo' => 'Bienvenid@ a la administración de la tienda',
                 'menu' => false,
