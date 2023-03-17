@@ -53,9 +53,7 @@ class AdminController extends Controller
 
                     header("LOCATION:" . ROOT . 'AdminShop');
                 }
-
             }
-
         }
 
         $data = [
