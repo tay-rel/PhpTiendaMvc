@@ -91,18 +91,15 @@ class CartController extends Controller
             $this->view('carts/address', $data);
 
         } else {
-            $data = [
-                'titulo' => 'Carrito | Checkout',
-                'subtitle' => 'Checkout | Iniciar sesion',
-                'menu' => true
-            ];
-
-            $this->view('carts/checkout', $data);
+					 header('location:' . ROOT);
         }
     }
 
     public function paymentmode()
     {
+			 $session = new Session();
+	 
+			 if ($session->getLogin()) {
         $data = [
             'titulo' => 'Carrito | Forma de pago',
             'subtitle' => 'Checkout | Forma de pago',
@@ -110,6 +107,9 @@ class CartController extends Controller
         ];
 
         $this->view('carts/paymentmode', $data);
+			 } else {
+					header('location:' . ROOT);
+			 }
     }
 
     public function verify()
@@ -134,34 +134,34 @@ class CartController extends Controller
     {
         $session = new Session();
         $user = $session->getUser();
-
-        if ($this->model->closeCart($user->id, 1)) {
-
-            $data = [
-                'titulo' => 'Carrito | Gracias por su compra',
-                'data' => $user,
-                'menu' => true,
-            ];
-
-            $this->view('carts/thanks', $data);
-
-        } else {
-
-            $data = [
-                'titulo' => 'Error en la actualización del carrito',
-                'menu' => false,
-                'subtitle' => 'Error en la actualización de los productos del carrito',
-                'text' => 'Existió un problema al actualizar el estado del carrito. Por favor, pruebe más tarde o comuníquese con nuestro servicio de soporte',
-                'color' => 'alert-danger',
-                'url' => 'login',
-                'colorButton' => 'btn-danger',
-                'textButton' => 'Regresar',
-            ];
-
-            $this->view('mensaje', $data);
-
-        }
-
+	 
+			 if ($session->getLogin()) {
+					 if ($this->model->closeCart($user->id, 1)) {
+	 
+							 $data = [
+									 'titulo' => 'Carrito | Gracias por su compra',
+									 'data' => $user,
+									 'menu' => true,
+							 ];
+	 
+							 $this->view('carts/thanks', $data);
+					 } else {
+							 $data = [
+									 'titulo' => 'Error en la actualización del carrito',
+									 'menu' => false,
+									 'subtitle' => 'Error en la actualización de los productos del carrito',
+									 'text' => 'Existió un problema al actualizar el estado del carrito. Por favor, pruebe más tarde o comuníquese con nuestro servicio de soporte',
+									 'color' => 'alert-danger',
+									 'url' => 'login',
+									 'colorButton' => 'btn-danger',
+									 'textButton' => 'Regresar',
+							 ];
+	 
+							 $this->view('mensaje', $data);
+					 }
+			 }else{
+					header('location:' . ROOT);
+			 }
 
     }
 }
