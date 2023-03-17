@@ -13,7 +13,7 @@ class AdminShopController extends Controller
     {
         $session = new Session();
 
-        if ($session->getLogin() ) {
+        if ($session->getLogin() && $session->isLoggedInAdmin() ) {
             $data = [
                 'titulo' => 'Bienvenid@ a la administración de la tienda',
                 'menu' => false,
@@ -22,8 +22,7 @@ class AdminShopController extends Controller
             ];
             $this->view('admin/shop/index', $data);
         } else {
-            header('LOCATION:' . ROOT . 'admin');
+					 header('LOCATION:' . ROOT);
         }
-
     }
 }

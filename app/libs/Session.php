@@ -16,6 +16,7 @@ class Session
 				 $this->login = true;
 				 $_SESSION['cartTotal'] = $this->cartTotal();
 				 $this->cartTotal = $_SESSION['cartTotal'];
+				 $this->loginAdmin = $_SESSION['isAdmin'];
 	
 			} else {
 				 unset($this->user);
@@ -29,11 +30,11 @@ class Session
 				 $this->user = $user;
 				 $_SESSION['user'] = $user;
 				 $this->login = true;
+				 $this->loginAdmin = true;
 				 if($isAdmin){
 						$_SESSION['isAdmin'] = true;
-						$this->loginAdmin = true;
 				 }else{
-						$_SESSION['isAdmin'] = $this->checkIsAdmin();
+						$_SESSION['isAdmin'] = $this->checkIsAdmin();// verifica si el usuario actual es un administrador o no.
 				 }
 			}
 	 }
@@ -63,7 +64,8 @@ class Session
 	 
 	 public function getUserId()
 	 {
-			return $this->user->id;
+			//si la propiedad user no esta definida es null
+			return $this->user->id ?? null;
 			
 	 }
 	 public function checkIsAdmin()
