@@ -58,6 +58,40 @@ class Cart
 
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+		
+		public function addAddress($user_id,$data)
+		{
+			 $response = false;
+			 $sql = 'INSERT INTO addreeses(user_id,first_name, last_name_1, last_name_2, email,
+                  address, city, state, zipcode, country)
+                  VALUES(:user_id,:first_name, :last_name_1, :last_name_2, :email,
+                  :address, :city, :state, :zipcode, :country)';
+
+			 $params = [
+				 ':user_id' => $user_id,
+				 ':first_name' => $data['first_name'],
+				 ':last_name_1' => $data['last_name_1'],
+				 ':last_name_2' => $data['last_name_2'],
+				 ':email' => $data['email'],
+				 ':address' => $data['address'],
+				 ':city' => $data['city'],
+				 ':state' => $data['state'],
+				 ':zipcode' => $data['zipcode'],
+				 ':country' => $data['country'],
+			 ];
+			 $query = $this->db->prepare($sql);
+			 $response = $query->execute($params);
+			 
+			 return $response;
+			 
+		}
+	 public function getAddresses($user_id)
+	 {
+			$sql = 'SELECT * FROM addreeses WHERE user_id=:user_id';
+			$query = $this->db->prepare($sql);
+			$query->execute([':user_id' => $user_id]);
+			return $query->fetchAll(PDO::FETCH_OBJ);
+	 }
 
     public function update($user, $product, $quantity)
     {
