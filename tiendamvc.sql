@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: mysql
--- Tiempo de generación: 26-10-2022 a las 17:21:29
+-- Tiempo de generación: 21-03-2023 a las 10:42:33
 -- Versión del servidor: 8.0.30
 -- Versión de PHP: 8.0.23
 
@@ -20,6 +20,76 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `tiendamvc`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `addreeses`
+--
+
+CREATE TABLE `addreeses` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `first_name` varchar(200) NOT NULL,
+  `last_name_1` varchar(200) NOT NULL,
+  `last_name_2` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `city` varchar(200) NOT NULL,
+  `state` varchar(200) NOT NULL,
+  `zipcode` varchar(200) NOT NULL,
+  `country` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Volcado de datos para la tabla `addreeses`
+--
+
+INSERT INTO `addreeses` (`id`, `user_id`, `first_name`, `last_name_1`, `last_name_2`, `email`, `address`, `city`, `state`, `zipcode`, `country`) VALUES
+(1, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30010', 'Espa&ntilde;a'),
+(2, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30010', 'Espa&ntilde;a'),
+(3, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'Espa&ntilde;a'),
+(4, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'Espa&ntilde;a'),
+(5, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '2500', 'Espa&ntilde;a'),
+(6, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '2500', 'Espa&ntilde;a'),
+(7, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '2500', 'Espa&ntilde;a'),
+(8, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '2500', 'Espa&ntilde;a'),
+(9, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '2500', 'Espa&ntilde;a'),
+(10, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '2500', 'Espa&ntilde;a'),
+(11, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '3010', 'Espa&ntilde;a'),
+(12, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '3010', 'Espa&ntilde;a'),
+(13, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '213516', 'Espa&ntilde;a'),
+(14, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '213516', 'Espa&ntilde;a'),
+(15, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
+(16, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
+(17, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
+(18, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
+(19, 1, 'pablo', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'Espa&ntilde;a'),
+(20, 1, 'pablo', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'Espa&ntilde;a'),
+(21, 1, 'pablo', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'Espa&ntilde;a'),
+(22, 1, 'pablo', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'Espa&ntilde;a'),
+(23, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '3456', 'Espa&ntilde;a'),
+(24, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '3456', 'Espa&ntilde;a'),
+(25, 1, 'Pepe', 'fghf', 'fghf', 'pepe@mail.es', 'fgf', 'hfh', 'fghf', '454', 'España'),
+(26, 1, 'Pepe', 'fghf', 'fghf', 'pepe@mail.es', 'fgf', 'hfh', 'fghf', '454', 'España'),
+(27, 1, 'fj', 'fhhfj', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'hgj', 'Mghfj', 'ghjgf', 'fj'),
+(28, 1, 'fj', 'fhhfj', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'hgj', 'Mghfj', 'ghjgf', 'fj'),
+(29, 4, 'Sandra', 'safaf', 'sdfgag', 'sandra@gmail.com', 'fgafgf', 'fgagfg', 'afgag', 'afag', 'afdfg'),
+(30, 4, 'Sandra', 'safaf', 'sdfgag', 'sandra@gmail.com', 'fgafgf', 'fgagfg', 'afgag', 'afag', 'afdfg'),
+(31, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
+(32, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
+(33, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
+(34, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
+(35, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
+(36, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
+(37, 1, 'paco', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', 'sdgsgd', 'Espa&ntilde;a'),
+(38, 1, 'paco', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', 'sdgsgd', 'Espa&ntilde;a'),
+(39, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', 'FGHFSH', 'Espa&ntilde;a'),
+(40, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', 'FGHFSH', 'Espa&ntilde;a'),
+(41, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', 'sfaf', 'Espa&ntilde;a'),
+(42, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', 'sfaf', 'Espa&ntilde;a'),
+(43, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
+(44, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España');
 
 -- --------------------------------------------------------
 
@@ -45,8 +115,10 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `password`, `status`, `deleted`, `login_at`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 'Jorge', 'jorge@mail.es', '806cc6e9290ccac7e77a34f545b28fdf3c8a87dab0f144f3885b2411483e433df0a34d9d11355f20b74df86b9bbbe5dd95d4046be9430851b8fbdbc390dc8e54', 1, 0, '2022-10-11 17:26:13', '2022-10-07 18:00:41', '2022-10-11 17:27:38', NULL),
-(4, 'Jaime', 'jaime@mail.es', '806cc6e9290ccac7e77a34f545b28fdf3c8a87dab0f144f3885b2411483e433df0a34d9d11355f20b74df86b9bbbe5dd95d4046be9430851b8fbdbc390dc8e54', 1, 0, '2022-10-11 18:57:02', '2022-10-11 18:02:06', NULL, NULL);
+(2, 'Jorge', 'jorge@mail.es', '806cc6e9290ccac7e77a34f545b28fdf3c8a87dab0f144f3885b2411483e433df0a34d9d11355f20b74df86b9bbbe5dd95d4046be9430851b8fbdbc390dc8e54', 1, 0, '2023-03-16 21:59:44', '2022-10-07 18:00:41', '2022-10-11 17:27:38', NULL),
+(4, 'Jaime', 'jaime@mail.es', '806cc6e9290ccac7e77a34f545b28fdf3c8a87dab0f144f3885b2411483e433df0a34d9d11355f20b74df86b9bbbe5dd95d4046be9430851b8fbdbc390dc8e54', 1, 0, '2023-03-20 22:23:02', '2022-10-11 18:02:06', NULL, NULL),
+(12, 'Sandra', 'sandra@gmail.com', 'a69f16dbd2c154898e4bf453fd0694a11d429bc86972a26b521ffd9c2c84b9ca6253e0b10ae26c39d0d7b71f0eb973758f6b43eba1949fd9c4faaeeb18dd5b74', 1, 0, '2023-03-21 10:18:15', '2023-03-16 17:05:52', NULL, NULL),
+(13, 'pablo', 'pablo@gmail.com', 'a69f16dbd2c154898e4bf453fd0694a11d429bc86972a26b521ffd9c2c84b9ca6253e0b10ae26c39d0d7b71f0eb973758f6b43eba1949fd9c4faaeeb18dd5b74', 1, 0, NULL, '2023-03-16 22:16:19', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -62,16 +134,27 @@ CREATE TABLE `carts` (
   `quantity` decimal(10,2) NOT NULL,
   `discount` decimal(10,2) NOT NULL,
   `send` decimal(10,2) NOT NULL,
-  `date` datetime NOT NULL
+  `date` datetime NOT NULL,
+  `price` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Volcado de datos para la tabla `carts`
 --
 
-INSERT INTO `carts` (`id`, `state`, `user_id`, `product_id`, `quantity`, `discount`, `send`, `date`) VALUES
-(1, 1, 1, 2, '3.00', '1.99', '2.99', '2022-10-21 18:38:02'),
-(2, 1, 1, 1, '2.00', '0.99', '1.99', '2022-10-21 18:38:44');
+INSERT INTO `carts` (`id`, `state`, `user_id`, `product_id`, `quantity`, `discount`, `send`, `date`, `price`) VALUES
+(1, 1, 1, 2, '1.00', '1.99', '2.99', '2022-10-21 18:38:02', '0.00'),
+(7, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 19:19:39', '0.00'),
+(11, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 22:05:12', '0.00'),
+(13, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 22:43:16', '0.00'),
+(15, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 23:11:53', '0.00'),
+(17, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 23:23:48', '19.99'),
+(20, 1, 4, 1, '1.00', '0.99', '1.99', '2023-03-17 11:48:32', NULL),
+(21, 1, 4, 3, '1.00', '0.99', '0.00', '2023-03-17 11:48:32', NULL),
+(22, 1, 1, 2, '1.00', '1.99', '2.99', '2023-03-17 18:27:28', NULL),
+(35, 1, 1, 2, '1.00', '1.99', '2.99', '2023-03-19 20:05:04', NULL),
+(36, 1, 1, 2, '1.00', '1.99', '2.99', '2023-03-19 20:06:25', NULL),
+(39, 1, 4, 1, '1.00', '0.99', '1.99', '2023-03-21 08:48:24', NULL);
 
 -- --------------------------------------------------------
 
@@ -139,7 +222,9 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `type`, `name`, `description`, `price`, `discount`, `send`, `image`, `published`, `relation1`, `relation2`, `relation3`, `mostSold`, `new`, `status`, `deleted`, `create_at`, `updated_at`, `deleted_at`, `author`, `publisher`, `pages`, `people`, `objetives`, `necesites`) VALUES
 (1, '2', 'El nombre de la rosa', '&lt;p&gt;dfvsdfv jdfd &amp;nbsp;&amp;nbsp;&lt;strong&gt;kjdfh&lt;/strong&gt; kjf &lt;i&gt;jdjgk&lt;/i&gt; vjk&lt;/p&gt;', '9.99', '0.99', '1.99', '20150613-mac.jpg', '2022-10-19', 0, 0, 0, '1', '1', 0, 0, '2022-10-18 19:12:02', NULL, NULL, 'Pepe', 'Jos&eacute;', 100, '', '', ''),
 (2, '2', 'El retorno del rey', '&lt;p&gt;dfvsdfv jdfd &amp;nbsp;&amp;nbsp;&lt;strong&gt;kjdfh&lt;/strong&gt; kjf &lt;i&gt;jdjgk&lt;/i&gt; vjk&lt;/p&gt;', '19.99', '1.99', '2.99', '20150627-mac.jpg', '2022-10-26', 0, 0, 0, '0', '1', 0, 0, '2022-10-18 19:16:16', '2022-10-19 17:38:33', NULL, 'Pepe', 'Jos&eacute;', 100, '', '', ''),
-(3, '1', 'From zero to master in PHP', '&lt;p&gt;&lt;i&gt;Mejora hasta el infinito&lt;/i&gt; tus habilidades en &lt;strong&gt;PHP&lt;/strong&gt; y programaci&oacute;n orientada a objetos, &lt;strong&gt;POO&lt;/strong&gt;.&lt;/p&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod&lt;br&gt;tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,&lt;br&gt;quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo&lt;br&gt;consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse&lt;br&gt;cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non&lt;br&gt;proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod&lt;br&gt;tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,&lt;br&gt;quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo&lt;br&gt;consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse&lt;br&gt;cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non&lt;br&gt;proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;', '9.99', '0.99', '0.00', '20150711-mac.jpg', '2022-10-27', 0, 0, 0, '1', '1', 1, 0, '2022-10-20 14:23:44', '2022-10-20 14:25:24', NULL, 'Pepe', 'Jos&eacute;', 100, 'Novatos', 'Desde la nada al todo en PHP', 'Ganas, muchas ganas');
+(3, '1', 'From zero to master in PHP', '&lt;p&gt;&lt;i&gt;Mejora hasta el infinito&lt;/i&gt; tus habilidades en &lt;strong&gt;PHP&lt;/strong&gt; y programaci&oacute;n orientada a objetos, &lt;strong&gt;POO&lt;/strong&gt;.&lt;/p&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod&lt;br&gt;tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,&lt;br&gt;quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo&lt;br&gt;consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse&lt;br&gt;cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non&lt;br&gt;proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod&lt;br&gt;tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,&lt;br&gt;quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo&lt;br&gt;consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse&lt;br&gt;cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non&lt;br&gt;proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;', '9.99', '0.99', '0.00', '20150711-mac.jpg', '2022-10-27', 0, 0, 0, '1', '1', 1, 0, '2022-10-20 14:23:44', '2022-10-20 14:25:24', NULL, 'Pepe', 'Jos&eacute;', 100, 'Novatos', 'Desde la nada al todo en PHP', 'Ganas, muchas ganas'),
+(4, '2', 'Cosas', '&lt;p&gt;Cosas&lt;/p&gt;', '48.20', '4.10', '5.00', 'f100031882.jpg', '2022-11-26', 0, 3, 0, '1', '0', 0, 1, '2022-11-16 22:34:12', NULL, '2022-11-16 22:34:18', 'Cosas', 'Cosas', 546, 'Novatos', 'Desde la nada al todo en PHP', 'Ganas, muchas ganas'),
+(5, '1', 'hgfhdfhg', '&lt;p&gt;dgfhfjdfhgj&lt;/p&gt;', '45.00', '12.00', '2.00', 'indice.jpeg', '2023-04-01', 3, 0, 0, '1', '1', 0, 0, '2023-03-17 23:04:21', NULL, NULL, 'Pepe', 'Jos&eacute;', 100, 'dgjdjdj', 'dhjdgj', 'djdjdghj');
 
 -- --------------------------------------------------------
 
@@ -158,20 +243,29 @@ CREATE TABLE `users` (
   `state` varchar(50) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `zipcode` varchar(10) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `country` varchar(100) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
-  `password` varchar(200) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL
+  `password` varchar(200) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
+  `is_admin` tinyint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name_1`, `last_name_2`, `email`, `address`, `city`, `state`, `zipcode`, `country`, `password`) VALUES
-(1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España', 'a69f16dbd2c154898e4bf453fd0694a11d429bc86972a26b521ffd9c2c84b9ca6253e0b10ae26c39d0d7b71f0eb973758f6b43eba1949fd9c4faaeeb18dd5b74'),
-(2, 'Juan', 'García', 'Martínez', 'juan@juan.es', 'c/ La otra', 'Valencia', 'Valencia', '46001', 'España', '806cc6e9290ccac7e77a34f545b28fdf3c8a87dab0f144f3885b2411483e433df0a34d9d11355f20b74df86b9bbbe5dd95d4046be9430851b8fbdbc390dc8e54');
+INSERT INTO `users` (`id`, `first_name`, `last_name_1`, `last_name_2`, `email`, `address`, `city`, `state`, `zipcode`, `country`, `password`, `is_admin`) VALUES
+(1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España', 'a69f16dbd2c154898e4bf453fd0694a11d429bc86972a26b521ffd9c2c84b9ca6253e0b10ae26c39d0d7b71f0eb973758f6b43eba1949fd9c4faaeeb18dd5b74', 0),
+(2, 'Juan', 'García', 'Martínez', 'juan@juan.es', 'c/ La otra', 'Valencia', 'Valencia', '46001', 'España', '806cc6e9290ccac7e77a34f545b28fdf3c8a87dab0f144f3885b2411483e433df0a34d9d11355f20b74df86b9bbbe5dd95d4046be9430851b8fbdbc390dc8e54', 0),
+(4, 'Sandra', '', '', 'sandra@gmail.com', '', '', '', '', '', 'a69f16dbd2c154898e4bf453fd0694a11d429bc86972a26b521ffd9c2c84b9ca6253e0b10ae26c39d0d7b71f0eb973758f6b43eba1949fd9c4faaeeb18dd5b74', 1),
+(7, 'pablo', '', '', 'pablo@gmail.com', '', '', '', '', '', 'a69f16dbd2c154898e4bf453fd0694a11d429bc86972a26b521ffd9c2c84b9ca6253e0b10ae26c39d0d7b71f0eb973758f6b43eba1949fd9c4faaeeb18dd5b74', 1);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `addreeses`
+--
+ALTER TABLE `addreeses`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `admins`
@@ -208,16 +302,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `addreeses`
+--
+ALTER TABLE `addreeses`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
 -- AUTO_INCREMENT de la tabla `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `config`
@@ -229,13 +329,13 @@ ALTER TABLE `config`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
