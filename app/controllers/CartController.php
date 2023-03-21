@@ -276,17 +276,27 @@ class CartController extends Controller
 			 }
         $user = $session->getUser();
         $cart = $this->model->getCart($user->id);
-        $payment = $_POST['payment'] ?? '';
-
-        $data = [
-            'titulo' => 'Carrito | Verificar los datos',
-            'menu' => true,
-            'payment' => $payment,
-            'user' => $user,
-            'data' => $cart,
-        ];
-
-        $this->view('carts/verify', $data);
+				
+			 if(isset($_POST['payment'])){
+					$payment = $_POST['payment'];
+					$data = [
+						'titulo'    => 'Carrito | verificar los datos',
+						'subtitle'    => 'Carrito | verificar los datos',
+						'payment'   => $payment,
+						'user'      => $user,
+						'data'      => $cart,
+						'menu'      => true,
+					];
+					$this->view('carts/verify', $data);
+			 }else{
+					$data = [
+						'titulo'    => 'Carrito | Forma de pago',
+						'subtitle'  => 'checkout | Forma de pago',
+						'menu'      => true,
+						'errors'    => ['La forma de pago es obligatoria'],
+					];
+					$this->view('carts/paymentmode', $data);
+			 }
     }
 
     public function thanks()
