@@ -276,6 +276,7 @@ class CartController extends Controller
 			 }
         $user = $session->getUser();
         $cart = $this->model->getCart($user->id);
+				$address=$this->model->getAddresses($user->id);
 				
 			 if(isset($_POST['payment'])){
 					$payment = $_POST['payment'];
@@ -286,6 +287,7 @@ class CartController extends Controller
 						'user'      => $user,
 						'data'      => $cart,
 						'menu'      => true,
+						'address' => $address, // Agregar datos de dirección a la vista
 					];
 					$this->view('carts/verify', $data);
 			 }else{

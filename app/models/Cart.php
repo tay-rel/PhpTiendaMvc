@@ -87,10 +87,11 @@ class Cart
 		}
 	 public function getAddresses($user_id)
 	 {
-			$sql = 'SELECT * FROM addreeses WHERE user_id=:user_id';
+			$sql = 'SELECT * FROM addreeses WHERE user_id = :user_id';
+			$params = [':user_id' => $user_id];
 			$query = $this->db->prepare($sql);
-			$query->execute([':user_id' => $user_id]);
-			return $query->fetchAll(PDO::FETCH_OBJ);
+			$query->execute($params);
+			return $query->fetchAll(PDO::FETCH_ASSOC);
 	 }
 
     public function update($user, $product, $quantity)
