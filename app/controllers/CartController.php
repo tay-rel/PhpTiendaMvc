@@ -307,6 +307,13 @@ class CartController extends Controller
         $user = $session->getUser();
 	 
 			 if ($session->getLogin()) {
+					//variable para obtener el producto del carrito
+					$prices= $this->model->getProductPrices($user->id);
+				 
+					//foreach recorre prices, que tiene la longitud de lo que tenga carrito
+					foreach ($prices as $price){
+						 $this->model->updateProductPrice($price->product_id,$user->id,$price->price);
+					}
 					 if ($this->model->closeCart($user->id, 1)) {
 	 
 							 $data = [
