@@ -116,7 +116,9 @@ class AdminProductController extends Controller
             } else {
                 array_push($errors, 'Debes seleccionar un tipo válido');
             }
-
+					 if (! is_numeric($status)) {
+							array_push($errors, 'Elige un estado inactivo o activo');
+					 }
             if ($image) {
                 if (Validate::imageFile($_FILES['image']['tmp_name'])) {
 
@@ -241,7 +243,11 @@ class AdminProductController extends Controller
             } elseif ( ! Validate::dateDif($published)) {
                 array_push($errors, 'La fecha de publicación no puede ser anterior a hoy');
             }
-            if ($type == 1) {
+					 if (! is_numeric($status)) {
+							array_push($errors, 'Elige un estado inactivo o activo');
+					 }
+	 
+					 if ($type == 1) {
                 if (empty($people)) {
                     array_push($errors, 'El público objetivo del curso es obligatorio');
                 }
