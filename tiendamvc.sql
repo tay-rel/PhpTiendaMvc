@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: mysql
--- Tiempo de generación: 21-03-2023 a las 10:42:33
+-- Tiempo de generación: 21-03-2023 a las 23:54:12
 -- Versión del servidor: 8.0.30
 -- Versión de PHP: 8.0.23
 
@@ -89,7 +89,9 @@ INSERT INTO `addreeses` (`id`, `user_id`, `first_name`, `last_name_1`, `last_nam
 (41, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', 'sfaf', 'Espa&ntilde;a'),
 (42, 1, 'Pepe', 'P&eacute;rez', 'S&aacute;nchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', 'sfaf', 'Espa&ntilde;a'),
 (43, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
-(44, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España');
+(44, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
+(45, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España'),
+(46, 1, 'Pepe', 'Pérez', 'Sánchez', 'pepe@mail.es', 'c/ La suya 1', 'Murcia', 'Murcia', '30001', 'España');
 
 -- --------------------------------------------------------
 
@@ -117,7 +119,7 @@ CREATE TABLE `admins` (
 INSERT INTO `admins` (`id`, `name`, `email`, `password`, `status`, `deleted`, `login_at`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (2, 'Jorge', 'jorge@mail.es', '806cc6e9290ccac7e77a34f545b28fdf3c8a87dab0f144f3885b2411483e433df0a34d9d11355f20b74df86b9bbbe5dd95d4046be9430851b8fbdbc390dc8e54', 1, 0, '2023-03-16 21:59:44', '2022-10-07 18:00:41', '2022-10-11 17:27:38', NULL),
 (4, 'Jaime', 'jaime@mail.es', '806cc6e9290ccac7e77a34f545b28fdf3c8a87dab0f144f3885b2411483e433df0a34d9d11355f20b74df86b9bbbe5dd95d4046be9430851b8fbdbc390dc8e54', 1, 0, '2023-03-20 22:23:02', '2022-10-11 18:02:06', NULL, NULL),
-(12, 'Sandra', 'sandra@gmail.com', 'a69f16dbd2c154898e4bf453fd0694a11d429bc86972a26b521ffd9c2c84b9ca6253e0b10ae26c39d0d7b71f0eb973758f6b43eba1949fd9c4faaeeb18dd5b74', 1, 0, '2023-03-21 10:18:15', '2023-03-16 17:05:52', NULL, NULL),
+(12, 'Sandra', 'sandra@gmail.com', 'a69f16dbd2c154898e4bf453fd0694a11d429bc86972a26b521ffd9c2c84b9ca6253e0b10ae26c39d0d7b71f0eb973758f6b43eba1949fd9c4faaeeb18dd5b74', 1, 0, '2023-03-21 23:05:16', '2023-03-16 17:05:52', NULL, NULL),
 (13, 'pablo', 'pablo@gmail.com', 'a69f16dbd2c154898e4bf453fd0694a11d429bc86972a26b521ffd9c2c84b9ca6253e0b10ae26c39d0d7b71f0eb973758f6b43eba1949fd9c4faaeeb18dd5b74', 1, 0, NULL, '2023-03-16 22:16:19', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -135,26 +137,29 @@ CREATE TABLE `carts` (
   `discount` decimal(10,2) NOT NULL,
   `send` decimal(10,2) NOT NULL,
   `date` datetime NOT NULL,
-  `price` decimal(10,2) DEFAULT NULL
+  `price` decimal(10,2) DEFAULT NULL,
+  `payment_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Volcado de datos para la tabla `carts`
 --
 
-INSERT INTO `carts` (`id`, `state`, `user_id`, `product_id`, `quantity`, `discount`, `send`, `date`, `price`) VALUES
-(1, 1, 1, 2, '1.00', '1.99', '2.99', '2022-10-21 18:38:02', '0.00'),
-(7, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 19:19:39', '0.00'),
-(11, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 22:05:12', '0.00'),
-(13, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 22:43:16', '0.00'),
-(15, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 23:11:53', '0.00'),
-(17, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 23:23:48', '19.99'),
-(20, 1, 4, 1, '1.00', '0.99', '1.99', '2023-03-17 11:48:32', NULL),
-(21, 1, 4, 3, '1.00', '0.99', '0.00', '2023-03-17 11:48:32', NULL),
-(22, 1, 1, 2, '1.00', '1.99', '2.99', '2023-03-17 18:27:28', NULL),
-(35, 1, 1, 2, '1.00', '1.99', '2.99', '2023-03-19 20:05:04', NULL),
-(36, 1, 1, 2, '1.00', '1.99', '2.99', '2023-03-19 20:06:25', NULL),
-(39, 1, 4, 1, '1.00', '0.99', '1.99', '2023-03-21 08:48:24', NULL);
+INSERT INTO `carts` (`id`, `state`, `user_id`, `product_id`, `quantity`, `discount`, `send`, `date`, `price`, `payment_id`) VALUES
+(1, 1, 1, 2, '1.00', '1.99', '2.99', '2022-10-21 18:38:02', '0.00', NULL),
+(7, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 19:19:39', '0.00', NULL),
+(11, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 22:05:12', '0.00', NULL),
+(13, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 22:43:16', '0.00', NULL),
+(15, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 23:11:53', '0.00', NULL),
+(17, 1, 1, 2, '1.00', '1.99', '2.99', '2022-11-17 23:23:48', '19.99', NULL),
+(20, 1, 4, 1, '1.00', '0.99', '1.99', '2023-03-17 11:48:32', NULL, NULL),
+(21, 1, 4, 3, '1.00', '0.99', '0.00', '2023-03-17 11:48:32', NULL, NULL),
+(22, 1, 1, 2, '1.00', '1.99', '2.99', '2023-03-17 18:27:28', NULL, NULL),
+(35, 1, 1, 2, '1.00', '1.99', '2.99', '2023-03-19 20:05:04', NULL, NULL),
+(36, 1, 1, 2, '1.00', '1.99', '2.99', '2023-03-19 20:06:25', NULL, NULL),
+(39, 1, 4, 1, '1.00', '0.99', '1.99', '2023-03-21 08:48:24', NULL, NULL),
+(49, 1, 1, 3, '1.00', '0.99', '0.00', '2023-03-21 23:34:54', '9.99', NULL),
+(50, 0, 1, 5, '1.00', '12.00', '2.00', '2023-03-21 23:53:52', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -180,6 +185,17 @@ INSERT INTO `config` (`id`, `type`, `value`, `description`) VALUES
 (4, 'productType', 2, 'Libro'),
 (5, 'productStatus', 0, 'Inactivo'),
 (6, 'productStatus', 1, 'Activo');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int NOT NULL,
+  `name` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -224,7 +240,7 @@ INSERT INTO `products` (`id`, `type`, `name`, `description`, `price`, `discount`
 (2, '2', 'El retorno del rey', '&lt;p&gt;dfvsdfv jdfd &amp;nbsp;&amp;nbsp;&lt;strong&gt;kjdfh&lt;/strong&gt; kjf &lt;i&gt;jdjgk&lt;/i&gt; vjk&lt;/p&gt;', '19.99', '1.99', '2.99', '20150627-mac.jpg', '2022-10-26', 0, 0, 0, '0', '1', 0, 0, '2022-10-18 19:16:16', '2022-10-19 17:38:33', NULL, 'Pepe', 'Jos&eacute;', 100, '', '', ''),
 (3, '1', 'From zero to master in PHP', '&lt;p&gt;&lt;i&gt;Mejora hasta el infinito&lt;/i&gt; tus habilidades en &lt;strong&gt;PHP&lt;/strong&gt; y programaci&oacute;n orientada a objetos, &lt;strong&gt;POO&lt;/strong&gt;.&lt;/p&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod&lt;br&gt;tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,&lt;br&gt;quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo&lt;br&gt;consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse&lt;br&gt;cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non&lt;br&gt;proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod&lt;br&gt;tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,&lt;br&gt;quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo&lt;br&gt;consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse&lt;br&gt;cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non&lt;br&gt;proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;', '9.99', '0.99', '0.00', '20150711-mac.jpg', '2022-10-27', 0, 0, 0, '1', '1', 1, 0, '2022-10-20 14:23:44', '2022-10-20 14:25:24', NULL, 'Pepe', 'Jos&eacute;', 100, 'Novatos', 'Desde la nada al todo en PHP', 'Ganas, muchas ganas'),
 (4, '2', 'Cosas', '&lt;p&gt;Cosas&lt;/p&gt;', '48.20', '4.10', '5.00', 'f100031882.jpg', '2022-11-26', 0, 3, 0, '1', '0', 0, 1, '2022-11-16 22:34:12', NULL, '2022-11-16 22:34:18', 'Cosas', 'Cosas', 546, 'Novatos', 'Desde la nada al todo en PHP', 'Ganas, muchas ganas'),
-(5, '1', 'hgfhdfhg', '&lt;p&gt;dgfhfjdfhgj&lt;/p&gt;', '45.00', '12.00', '2.00', 'indice.jpeg', '2023-04-01', 3, 0, 0, '1', '1', 0, 0, '2023-03-17 23:04:21', NULL, NULL, 'Pepe', 'Jos&eacute;', 100, 'dgjdjdj', 'dhjdgj', 'djdjdghj');
+(5, '1', 'hgfhdfhg', '&lt;p&gt;dgfhfjdfhgj&lt;/p&gt;', '45.00', '12.00', '2.00', 'roosa.jpeg', '2023-04-01', 3, 0, 0, '1', '1', 0, 0, '2023-03-17 23:04:21', '2023-03-21 23:05:59', NULL, 'Pepe', 'Jos&eacute;', 100, 'dgjdjdj', 'dhjdgj', 'djdjdghj');
 
 -- --------------------------------------------------------
 
@@ -286,6 +302,12 @@ ALTER TABLE `config`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `products`
 --
 ALTER TABLE `products`
@@ -305,7 +327,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `addreeses`
 --
 ALTER TABLE `addreeses`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `admins`
@@ -317,13 +339,19 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT de la tabla `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de la tabla `config`
 --
 ALTER TABLE `config`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
