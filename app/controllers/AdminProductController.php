@@ -274,6 +274,12 @@ class AdminProductController extends Controller
                     if (is_uploaded_file($_FILES['image']['tmp_name'])) {
                         move_uploaded_file($_FILES['image']['tmp_name'], 'img/' . $image);
                         Validate::resizeImage($image, 240);
+	 											//Eliminar una imagen
+											 $imageOld = $this->model->getProductById($id);
+											 if (file_exists("img/$imageOld->image")) {
+													unlink("img/$imageOld->image");
+											 }
+											 //unlink("img/$imageOld->image");//se obtiene del registro del producto.
                     } else {
                         array_push($errors, 'Error al subir el archivo de imagen');
                     }
