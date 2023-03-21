@@ -13,7 +13,7 @@ class AdminProductController extends Controller
     {
         $session = new Session();
 
-        if ($session->getLogin()) {
+        if ($session->getLogin() && $session->isLoggedInAdmin()) {
 
             $products = $this->model->getProducts();
             $type = $this->model->getConfig('productType');
@@ -31,7 +31,7 @@ class AdminProductController extends Controller
             $this->view('admin/products/index', $data);
 
         } else {
-            header('location:' . ROOT . 'admin');
+					 header('LOCATION:' . ROOT);
         }
     }
 

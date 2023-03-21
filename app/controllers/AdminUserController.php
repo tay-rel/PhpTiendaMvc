@@ -13,7 +13,7 @@ class AdminUserController extends Controller
     {
         $session = new Session();
 
-        if ($session->getLogin()) {
+        if ($session->getLogin() && $session->isLoggedInAdmin() ) {
 
             $users = $this->model->getUsers();
 
@@ -27,7 +27,7 @@ class AdminUserController extends Controller
 
             $this->view('admin/users/index', $data);
         } else {
-            header('LOCATION:' . ROOT . 'admin');
+					 header('LOCATION:' . ROOT);
         }
 
     }
